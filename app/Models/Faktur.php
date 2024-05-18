@@ -9,6 +9,7 @@ class Faktur extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'slug',
         'user_id',
         'product_id',
         'kuantitas',

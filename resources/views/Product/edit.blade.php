@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create') }}
+            {{ __('Edit') }}
         </h2>
     </x-slot>
 
@@ -18,31 +18,32 @@
                             </ul>
                         </div>
                     @endif
-                    <h1>Create new product</h1>
+                    <h1>Edit product</h1>
                    
 
-                    <form action="{{ route("product.store") }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route("product.update", $product->slug) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div>
                             <label for="">Kategori id: </label>
-                            <input type="number" name="kategori_id">
+                            <input type="number" name="kategori_id" value="{{$product->kategori->id}}">
                         </div>
 
                         <div>
                             <label for="">Nama: </label>
-                            <input type="text" name="nama">
+                            <input type="text" name="nama" value="{{$product->nama}}">
                         </div>
                         <div>
                             <label for="">Harga: </label>
-                            <input type="number" name="harga">
+                            <input type="number" name="harga" value="{{$product->harga}}">
                         </div>
                         <div>
                             <label for="">Jumlah: </label>
-                            <input type="number" name="jumlah">
+                            <input type="number" name="jumlah" value="{{$product->jumlah}}">
                         </div>
                         <div>
                             <label for="">Masukkan foto: </label>
-                            <input type="file" name="foto">
+                            <input type="file" name="foto" value="{{$product->foto}}">
                         </div>
 
                         <button>Submit</button>

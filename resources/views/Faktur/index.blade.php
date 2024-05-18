@@ -7,43 +7,12 @@
 </head>
 <body>
     
-    <h1>User faktur</h1>
-    @php
-        $totalPrice=0;
-    @endphp
-    <div>
-        <label for="">Alamat pengiriman</label>
-        <input type="text" name="alamat_pengiriman">
-    </div>
-    <div>
-        <label for="">Alamat pengiriman</label>
-        <input type="text" name="kode_pos">
-    </div>
-
-    @foreach ($fakturs as $faktur)
-    @php
-        $subTotal=$faktur->product->harga * $faktur->kuantitas;
-        $totalPrice+=$subTotal;
-    @endphp
-    <div>
-        <label for="">Invoice Id: </label>
-        {{ $faktur->id }}
-    </div> 
-    <li>
-        {{ $faktur->product->kategori }}
-        <br>
-        {{ $faktur->product->name }} {{ $faktur->kuantitas }}x  Price: {{$faktur->product->harga}}
-        Subtotal: {{ $subTotal }}
-    </li>
-
-    <div>
-        <p>Total price: {{ $totalPrice }}</p>
-    </div>
-        
-        
-        
-        
-    @endforeach
-
+    <h1>Faktur Lists</h1>
+    <ul>
+        @foreach ($fakturs as $faktur)
+            <li>{{ $faktur->kode_pos }} {{ $faktur->alamat_pengiriman }}
+             <a href="{{ route('faktur.show',$faktur->slug) }}">Show</a></li>
+        @endforeach
+    </ul>
 </body>
 </html>

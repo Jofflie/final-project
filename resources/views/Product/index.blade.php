@@ -12,6 +12,12 @@
         @foreach ($products as $product)
             <li>{{ $product->nama }} <a href="{{ route('product.show',$product->slug) }}">Show</a></li>
             <img src="{{asset($product->foto)}}" alt="">
+            <a href="{{ route('product.edit', $product->slug) }}">Edit</a>
+            <form action="{{ route('product.delete', $product->slug)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button>Delete</button>
+            </form>
         @endforeach
     </ul>
 

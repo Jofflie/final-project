@@ -6,9 +6,10 @@
     <title>Document</title>
 </head>
 <body>
+  
     <h1>{{ $product->nama }}</h1>
     <p>
-        product kategori: {{$product->kategori}}
+        product kategori: {{$product->kategori->nama_kategori}}
         <br>
         product harga: {{$product->harga}}
         <br>
@@ -18,13 +19,6 @@
         <br>
         <img src="{{asset($product->foto)}}" alt="">
     </p>
-
-    <h2>Add this product to faktur</h2>
-    <form action="{{ route('faktur.store') }}" method="POST">
-    @csrf
-        <input type="hidden" name="product_id" value="{{ $product->id }}">
-
-        <button>submit</button>
-    </form>
+    
 </body>
 </html>

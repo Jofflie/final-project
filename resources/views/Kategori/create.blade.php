@@ -18,39 +18,23 @@
                             </ul>
                         </div>
                     @endif
-                    <h1>Create new product</h1>
+                    <h1>Create new category</h1>
                    
 
-                    <form action="{{ route("product.store") }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route("kategori.store") }}" method="POST">
                         @csrf
                         <div>
-                            <label for="">Kategori id: </label>
-                            <input type="number" name="kategori_id">
-                        </div>
-
-                        <div>
-                            <label for="">Nama: </label>
-                            <input type="text" name="nama">
-                        </div>
-                        <div>
-                            <label for="">Harga: </label>
-                            <input type="number" name="harga">
-                        </div>
-                        <div>
-                            <label for="">Jumlah: </label>
-                            <input type="number" name="jumlah">
-                        </div>
-                        <div>
-                            <label for="">Masukkan foto: </label>
-                            <input type="file" name="foto">
+                            <label for="">Kategori: </label>
+                            <input type="text" name="nama_kategori">
                         </div>
 
                         <button>Submit</button>
                     </form>
 
-                    
                 </div>
             </div>
         </div>
     </div>
 </x-app-layout>
+
+

@@ -10,11 +10,12 @@ class Kategori extends Model
     use HasFactory;
 
     protected $fillable = [
-        'kategori', 
+        'nama_kategori', 
     ];
 
     public function products()
     {
         return $this->hasMany(Product::class,'kategori_id');
     }
+
 }
